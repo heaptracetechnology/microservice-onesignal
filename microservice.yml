@@ -270,7 +270,6 @@ actions:
       contentType: application/json
       properties:
         success:
-<<<<<<< HEAD
           help: Returns true/false.
           type: string
         message:
@@ -278,15 +277,6 @@ actions:
           type: string
         statuscode:
           help: Returns http status code.
-=======
-          help: Returns true or false.
-          type: string
-        message:
-          help: Success message or error message if occured.
-          type: string
-        statuscode:
-          help: Http status code.
->>>>>>> f544916527c1de4d655d5830dec3ee1ebee6757f
           type: int
 environment:
   USER_KEY:
@@ -295,12 +285,5 @@ environment:
     help: User key for onesignal.
   APP_KEY:
     type: string
-<<<<<<< HEAD
     required: false
     help: App key for onesignal.
-=======
-    required: true
-    help: Key for pusher
-    
-    
->>>>>>> f544916527c1de4d655d5830dec3ee1ebee6757f
