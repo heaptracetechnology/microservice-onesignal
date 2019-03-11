@@ -1,21 +1,25 @@
 package messaging
 
 import (
-	"github.com/tbalthazar/onesignal-go"
-	"os"
-	"github.com/heaptracetechnology/microservice-onesignal/result"
-	"net/http"
 	"encoding/json"
 	"io/ioutil"
-)
-type Message struct {
-    Success 			string 			`json:"success"`
-    Message 			string 			`json:"message"`
-	  StatusCode 	  int 	 			`json:"statuscode"`
-}
-func ListApp(responseWriter http.ResponseWriter, request *http.Request){
+	"net/http"
+	"os"
 
-	appKey :=os.Getenv("APP_KEY")
+	"github.com/heaptracetechnology/microservice-onesignal/result"
+	"github.com/tbalthazar/onesignal-go"
+)
+
+type Message struct {
+	Success    string `json:"success"`
+	Message    string `json:"message"`
+	StatusCode int    `json:"statuscode"`
+}
+
+//List applications
+func ListApp(responseWriter http.ResponseWriter, request *http.Request) {
+
+	appKey := os.Getenv("APP_KEY")
 	userKey := os.Getenv("USER_KEY")
 	client := onesignal.NewClient(nil)
 	client.AppKey = appKey
@@ -33,33 +37,30 @@ func ListApp(responseWriter http.ResponseWriter, request *http.Request){
 
 }
 
-
-func SendMessage(responseWriter http.ResponseWriter, request *http.Request){
+//Send push notification
+func SendMessage(responseWriter http.ResponseWriter, request *http.Request) {
 
 	client := onesignal.NewClient(nil)
 
 	body, err := ioutil.ReadAll(request.Body)
-	if err != nil {
-		result.WriteErrorResponse(responseWriter, err)
-		return
-	}
+
 	defer request.Body.Close()
 	var argumentData onesignal.NotificationRequest
 
 	err = json.Unmarshal(body, &argumentData)
+
+	notificationReq := onesignal.NotificationRequest(argumentData)
+
 	if err != nil {
 		result.WriteErrorResponse(responseWriter, err)
 		return
 	}
-
-	notificationReq := onesignal.NotificationRequest(argumentData)
-
-	_, _ , errr := client.Notifications.Create(&notificationReq)
-	if err != nil {
+	_, _, errr := client.Notifications.Create(&notificationReq)
+	if errr != nil {
 		result.WriteErrorResponse(responseWriter, errr)
 		return
 	}
-	message := Message{"true","Notification sent",http.StatusOK}
+	message := Message{"true", "Notification sent", http.StatusOK}
 	bytes, _ := json.Marshal(message)
 	result.WriteJsonResponse(responseWriter, bytes, http.StatusOK)
 
