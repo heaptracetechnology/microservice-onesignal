@@ -1,0 +1,13 @@
+mode: set
+github.com/heaptracetechnology/microservice-onesignal/messaging/messaging.go:16.72,24.16 7 1
+github.com/heaptracetechnology/microservice-onesignal/messaging/messaging.go:28.2,29.16 2 1
+github.com/heaptracetechnology/microservice-onesignal/messaging/messaging.go:32.2,32.64 1 1
+github.com/heaptracetechnology/microservice-onesignal/messaging/messaging.go:24.16,26.3 1 0
+github.com/heaptracetechnology/microservice-onesignal/messaging/messaging.go:29.16,31.3 1 0
+github.com/heaptracetechnology/microservice-onesignal/messaging/messaging.go:37.76,47.16 7 1
+github.com/heaptracetechnology/microservice-onesignal/messaging/messaging.go:51.2,55.16 4 1
+github.com/heaptracetechnology/microservice-onesignal/messaging/messaging.go:60.2,70.16 3 1
+github.com/heaptracetechnology/microservice-onesignal/messaging/messaging.go:74.2,76.64 3 1
+github.com/heaptracetechnology/microservice-onesignal/messaging/messaging.go:47.16,50.3 2 0
+github.com/heaptracetechnology/microservice-onesignal/messaging/messaging.go:55.16,58.3 2 0
+github.com/heaptracetechnology/microservice-onesignal/messaging/messaging.go:70.16,73.3 2 0
