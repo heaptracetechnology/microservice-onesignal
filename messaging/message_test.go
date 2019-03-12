@@ -17,7 +17,7 @@ var _ = Describe("List Applications", func() {
 	os.Setenv("USER_KEY", "NjY1M2ViODktNTIxMi00ODBmLTk4Y2YtMjE3YzE1Y2I0ZmJl")
 	os.Setenv("APP_KEY", "MDdjMDJlY2ItNTVhOC00NDI1LTllOTEtOTdkNzgyNWUzYjIz")
 
-	request, err := http.NewRequest("GET", "/send", nil)
+	request, err := http.NewRequest("GET", "/list", nil)
 	if err != nil {
 	}
 	recorder := httptest.NewRecorder()
@@ -38,7 +38,7 @@ var _ = Describe("Verify http status code with invalid user key", func() {
 	os.Setenv("USER_KEY", "//11NjY1M2ViODktNTIxMi00ODBmLTk4Y2YtMjE3YzE1Y2I0ZmJl")
 	os.Setenv("APP_KEY", "MDdjMDJlY2ItNTVhOC00NDI1LTllOTEtOTdkNzgyNWUzYjIz")
 
-	request, err := http.NewRequest("GET", "/send", nil)
+	request, err := http.NewRequest("GET", "/list", nil)
 	if err != nil {
 	}
 	recorder := httptest.NewRecorder()
