@@ -20,7 +20,7 @@ var _ = Describe("List Applications", func() {
 
 	request, err := http.NewRequest("GET", "/list", nil)
 	if err != nil {
-
+		log.Fatal(err)
 	}
 	recorder := httptest.NewRecorder()
 	handler := http.HandlerFunc(ListApp)
