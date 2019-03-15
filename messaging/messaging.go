@@ -43,6 +43,9 @@ func SendMessage(responseWriter http.ResponseWriter, request *http.Request) {
 	client := onesignal.NewClient(nil)
 
 	body, err := ioutil.ReadAll(request.Body)
+	if err != nil {
+		result.WriteErrorResponse(responseWriter, err)
+	}
 
 	defer request.Body.Close()
 	var argumentData onesignal.NotificationRequest

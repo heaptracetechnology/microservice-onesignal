@@ -10,6 +10,7 @@ import (
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 	"github.com/tbalthazar/onesignal-go"
+	"log"
 )
 
 var _ = Describe("List Applications", func() {
@@ -19,6 +20,7 @@ var _ = Describe("List Applications", func() {
 
 	request, err := http.NewRequest("GET", "/list", nil)
 	if err != nil {
+
 	}
 	recorder := httptest.NewRecorder()
 	handler := http.HandlerFunc(ListApp)
@@ -40,6 +42,7 @@ var _ = Describe("Verify http status code with invalid user key", func() {
 
 	request, err := http.NewRequest("GET", "/list", nil)
 	if err != nil {
+		log.Fatal(err)
 	}
 	recorder := httptest.NewRecorder()
 	handler := http.HandlerFunc(ListApp)
@@ -64,10 +67,14 @@ var _ = Describe("OneSignal messaging with valid data", func() {
 	argumentData.ChromeWebIcon = "https://pbs.twimg.com/profile_images/1008644428964286464/gyBHbzaZ_400x400.jpg"
 
 	requestBody := new(bytes.Buffer)
-	json.NewEncoder(requestBody).Encode(argumentData)
+	errr := json.NewEncoder(requestBody).Encode(argumentData)
+	if errr != nil {
+		log.Fatal(errr)
+	}
 
 	request, err := http.NewRequest("POST", "/send", requestBody)
 	if err != nil {
+		log.Fatal(err)
 	}
 	recorder := httptest.NewRecorder()
 	handler := http.HandlerFunc(SendMessage)
@@ -92,10 +99,14 @@ var _ = Describe("OneSignal messaging with empty AppID", func() {
 	argumentData.ChromeWebIcon = "https://pbs.twimg.com/profile_images/1008644428964286464/gyBHbzaZ_400x400.jpg"
 
 	requestBody := new(bytes.Buffer)
-	json.NewEncoder(requestBody).Encode(argumentData)
+	errr := json.NewEncoder(requestBody).Encode(argumentData)
+	if errr != nil {
+		log.Fatal(errr)
+	}
 
 	request, err := http.NewRequest("POST", "/send", requestBody)
 	if err != nil {
+		log.Fatal(err)
 	}
 	recorder := httptest.NewRecorder()
 	handler := http.HandlerFunc(SendMessage)
@@ -120,10 +131,14 @@ var _ = Describe("OneSignal messaging with invalid AppID", func() {
 	argumentData.ChromeWebIcon = "https://pbs.twimg.com/profile_images/1008644428964286464/gyBHbzaZ_400x400.jpg"
 
 	requestBody := new(bytes.Buffer)
-	json.NewEncoder(requestBody).Encode(argumentData)
+	errr := json.NewEncoder(requestBody).Encode(argumentData)
+	if errr != nil {
+		log.Fatal(errr)
+	}
 
 	request, err := http.NewRequest("POST", "/send", requestBody)
 	if err != nil {
+		log.Fatal(err)
 	}
 	recorder := httptest.NewRecorder()
 	handler := http.HandlerFunc(SendMessage)
@@ -148,10 +163,14 @@ var _ = Describe("OneSignal messaging with without Heading", func() {
 	argumentData.ChromeWebIcon = "https://pbs.twimg.com/profile_images/1008644428964286464/gyBHbzaZ_400x400.jpg"
 
 	requestBody := new(bytes.Buffer)
-	json.NewEncoder(requestBody).Encode(argumentData)
+	errr := json.NewEncoder(requestBody).Encode(argumentData)
+	if errr != nil {
+		log.Fatal(errr)
+	}
 
 	request, err := http.NewRequest("POST", "/send", requestBody)
 	if err != nil {
+		log.Fatal(err)
 	}
 	recorder := httptest.NewRecorder()
 	handler := http.HandlerFunc(SendMessage)
@@ -176,10 +195,14 @@ var _ = Describe("OneSignal messaging without Content", func() {
 	argumentData.ChromeWebIcon = "https://pbs.twimg.com/profile_images/1008644428964286464/gyBHbzaZ_400x400.jpg"
 
 	requestBody := new(bytes.Buffer)
-	json.NewEncoder(requestBody).Encode(argumentData)
+	errr := json.NewEncoder(requestBody).Encode(argumentData)
+	if errr != nil {
+		log.Fatal(errr)
+	}
 
 	request, err := http.NewRequest("POST", "/send", requestBody)
 	if err != nil {
+		log.Fatal(err)
 	}
 	recorder := httptest.NewRecorder()
 	handler := http.HandlerFunc(SendMessage)
@@ -204,10 +227,14 @@ var _ = Describe("OneSignal messaging with invalid playersID", func() {
 	argumentData.ChromeWebIcon = "https://pbs.twimg.com/profile_images/1008644428964286464/gyBHbzaZ_400x400.jpg"
 
 	requestBody := new(bytes.Buffer)
-	json.NewEncoder(requestBody).Encode(argumentData)
+	errr := json.NewEncoder(requestBody).Encode(argumentData)
+	if errr != nil {
+		log.Fatal(errr)
+	}
 
 	request, err := http.NewRequest("POST", "/send", requestBody)
 	if err != nil {
+		log.Fatal(err)
 	}
 	recorder := httptest.NewRecorder()
 	handler := http.HandlerFunc(SendMessage)
@@ -232,10 +259,14 @@ var _ = Describe("OneSignal messaging with empty playersID", func() {
 	argumentData.ChromeWebIcon = "https://pbs.twimg.com/profile_images/1008644428964286464/gyBHbzaZ_400x400.jpg"
 
 	requestBody := new(bytes.Buffer)
-	json.NewEncoder(requestBody).Encode(argumentData)
+	errr := json.NewEncoder(requestBody).Encode(argumentData)
+	if errr != nil {
+		log.Fatal(errr)
+	}
 
 	request, err := http.NewRequest("POST", "/send", requestBody)
 	if err != nil {
+		log.Fatal(err)
 	}
 	recorder := httptest.NewRecorder()
 	handler := http.HandlerFunc(SendMessage)
