@@ -280,3 +280,30 @@ var _ = Describe("OneSignal messaging with empty playersID", func() {
 		})
 	})
 })
+
+var _ = Describe("OneSignal messaging with Invalid data", func() {
+
+	argumentData := []byte(`{"appid":false}`)
+
+	requestBody := new(bytes.Buffer)
+	errr := json.NewEncoder(requestBody).Encode(argumentData)
+	if errr != nil {
+		log.Fatal(errr)
+	}
+
+	request, err := http.NewRequest("POST", "/send", requestBody)
+	if err != nil {
+		log.Fatal(err)
+	}
+	recorder := httptest.NewRecorder()
+	handler := http.HandlerFunc(SendMessage)
+	handler.ServeHTTP(recorder, request)
+
+	Describe("Send Message", func() {
+		Context("SendMessage", func() {
+			It("Should result http.StatusBadRequest", func() {
+				Expect(http.StatusBadRequest).To(Equal(recorder.Code))
+			})
+		})
+	})
+})

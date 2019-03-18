@@ -21,6 +21,7 @@ func ListApp(responseWriter http.ResponseWriter, request *http.Request) {
 
 	appKey := os.Getenv("APP_KEY")
 	userKey := os.Getenv("USER_KEY")
+
 	client := onesignal.NewClient(nil)
 	client.AppKey = appKey
 	client.UserKey = userKey
@@ -29,10 +30,7 @@ func ListApp(responseWriter http.ResponseWriter, request *http.Request) {
 		result.WriteErrorResponse(responseWriter, err)
 	}
 
-	bytes, err := json.Marshal(apps)
-	if err != nil {
-		result.WriteErrorResponse(responseWriter, err)
-	}
+	bytes, _ := json.Marshal(apps)
 	result.WriteJsonResponse(responseWriter, bytes, http.StatusOK)
 
 }
@@ -50,19 +48,20 @@ func SendMessage(responseWriter http.ResponseWriter, request *http.Request) {
 	defer request.Body.Close()
 	var argumentData onesignal.NotificationRequest
 
-	err = json.Unmarshal(body, &argumentData)
+	unmarshalErr := json.Unmarshal(body, &argumentData)
+	if unmarshalErr != nil {
+		result.WriteErrorResponse(responseWriter, unmarshalErr)
+		return
+	}
 
 	notificationReq := onesignal.NotificationRequest(argumentData)
 
-	if err != nil {
-		result.WriteErrorResponse(responseWriter, err)
+	_, _, createErr := client.Notifications.Create(&notificationReq)
+	if createErr != nil {
+		result.WriteErrorResponse(responseWriter, createErr)
 		return
 	}
-	_, _, errr := client.Notifications.Create(&notificationReq)
-	if errr != nil {
-		result.WriteErrorResponse(responseWriter, errr)
-		return
-	}
+
 	message := Message{"true", "Notification sent", http.StatusOK}
 	bytes, _ := json.Marshal(message)
 	result.WriteJsonResponse(responseWriter, bytes, http.StatusOK)
