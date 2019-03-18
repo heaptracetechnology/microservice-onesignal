@@ -6,6 +6,7 @@ An OMG service for OneSignal, it allows to send message to the players(users) wh
 [![codecov](https://codecov.io/gh/heaptracetechnology/microservice-onesignal/branch/master/graph/badge.svg)](https://codecov.io/gh/heaptracetechnology/microservice-onesignal)
 [![GolangCI](https://golangci.com/badges/github.com/golangci/golangci-web.svg)](https://golangci.com)
 
+
 ## [OMG](hhttps://microservice.guide) CLI
 
 ### OMG
