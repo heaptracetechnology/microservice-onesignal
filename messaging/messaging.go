@@ -38,7 +38,7 @@ func ListApp(responseWriter http.ResponseWriter, request *http.Request) {
 //Send push notification
 func SendMessage(responseWriter http.ResponseWriter, request *http.Request) {
 
-	client := onesignal.NewClient(nil)
+	onesignalClient := onesignal.NewClient(nil)
 
 	body, err := ioutil.ReadAll(request.Body)
 	if err != nil {
@@ -54,11 +54,11 @@ func SendMessage(responseWriter http.ResponseWriter, request *http.Request) {
 		return
 	}
 
-	notificationReq := onesignal.NotificationRequest(argumentData)
+	notificationRequest := onesignal.NotificationRequest(argumentData)
 
-	_, _, createErr := client.Notifications.Create(&notificationReq)
-	if createErr != nil {
-		result.WriteErrorResponse(responseWriter, createErr)
+	_, _, errs := onesignalClient.Notifications.Create(&notificationRequest)
+	if errs != nil {
+		result.WriteErrorResponse(responseWriter, errs)
 		return
 	}
 
