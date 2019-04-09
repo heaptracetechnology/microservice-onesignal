@@ -26,7 +26,7 @@ actions:
       contentType: application/json
       properties:
         id:
-          help: Apllications Id.
+          help: Application Id.
           type: string
         name:
           help: Name of the application.
@@ -254,7 +254,7 @@ actions:
         type: int
         in: requestBody
         required: false
-        help: Android visibilty.
+        help: Android visibility.
       android_background_data: 
         type: int
         in: requestBody
@@ -273,7 +273,7 @@ actions:
           help: Returns true/false.
           type: string
         message:
-          help: Notification sent message or error message if occured.
+          help: Notification sent message or error message if occurred.
           type: string
         statuscode:
           help: Returns http status code.
