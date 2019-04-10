@@ -19,6 +19,7 @@ type Message struct {
 //List applications
 func ListApp(responseWriter http.ResponseWriter, request *http.Request) {
 
+	responseWriter.Header().Set("Content-Type", "application/json")
 	appKey := os.Getenv("APP_KEY")
 	userKey := os.Getenv("USER_KEY")
 
@@ -38,6 +39,7 @@ func ListApp(responseWriter http.ResponseWriter, request *http.Request) {
 //Send push notification
 func SendMessage(responseWriter http.ResponseWriter, request *http.Request) {
 
+	responseWriter.Header().Set("Content-Type", "application/json")
 	onesignalClient := onesignal.NewClient(nil)
 
 	body, err := ioutil.ReadAll(request.Body)
