@@ -275,7 +275,7 @@ actions:
         message:
           help: Notification sent message or error message if occurred.
           type: string
-        statuscode:
+        statusCode:
           help: Returns http status code.
           type: int
 environment:
