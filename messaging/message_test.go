@@ -35,8 +35,8 @@ var _ = Describe("List Applications", func() {
 
 	Describe("List Application", func() {
 		Context("ListApp", func() {
-			It("Should result http.StatusOK", func() {
-				Expect(http.StatusOK).To(Equal(recorder.Code))
+			It("Should result http.StatusBadRequest", func() {
+				Expect(http.StatusBadRequest).To(Equal(recorder.Code))
 			})
 		})
 	})

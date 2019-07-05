@@ -1,8 +1,9 @@
 # _OneSignal_ OMG Microservice
 
 [![Open Microservice Guide](https://img.shields.io/badge/OMG-enabled-brightgreen.svg?style=for-the-badge)](https://microservice.guide)
-[![Build Status](https://travis-ci.org/heaptracetechnology/microservice-onesignal.svg?branch=master)](https://travis-ci.org/heaptracetechnology/microservice-onesignal)
-[![codecov](https://codecov.io/gh/heaptracetechnology/microservice-onesignal/branch/master/graph/badge.svg)](https://codecov.io/gh/heaptracetechnology/microservice-onesignal)
+[![Build Status](https://travis-ci.org/omg-services/onesignal.svg?branch=master)](https://travis-ci.org/omg-services/onesignal)
+[![codecov](https://codecov.io/gh/omg-services/onesignal/branch/master/graph/badge.svg)](https://codecov.io/gh/omg-services/onesignal)
+
 
 An OMG service for OneSignal, it allows to send message to the players(users) who have subscribed for the application on onesignal.
 
