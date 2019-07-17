@@ -1,48 +1,42 @@
-# OneSignal as a microservice
-An OMG service for OneSignal, it allows to send message to the players(users) who have subscribed for the application on onesignal.
+# _OneSignal_ OMG Microservice
 
 [![Open Microservice Guide](https://img.shields.io/badge/OMG-enabled-brightgreen.svg?style=for-the-badge)](https://microservice.guide)
-[![Build Status](https://travis-ci.org/heaptracetechnology/microservice-onesignal.svg?branch=master)](https://travis-ci.org/heaptracetechnology/microservice-onesignal)
-[![codecov](https://codecov.io/gh/heaptracetechnology/microservice-onesignal/branch/master/graph/badge.svg)](https://codecov.io/gh/heaptracetechnology/microservice-onesignal)
-[![GolangCI](https://golangci.com/badges/github.com/golangci/golangci-web.svg)](https://golangci.com)
+[![Build Status](https://travis-ci.org/omg-services/onesignal.svg?branch=master)](https://travis-ci.org/omg-services/onesignal)
+[![codecov](https://codecov.io/gh/omg-services/onesignal/branch/master/graph/badge.svg)](https://codecov.io/gh/omg-services/onesignal)
 
 
-## [OMG](hhttps://microservice.guide) CLI
+An OMG service for OneSignal, it allows to send message to the players(users) who have subscribed for the application on onesignal.
 
-### OMG
-
-* omg validate
-```
-omg validate
-```
-* omg build
-```
-omg build
-```
-### Test Service
-
-* Test the service by following OMG commands
-
-### CLI
+## Direct usage in [Storyscript](https://storyscript.io/):
 
 ##### List Application
-```sh
+```coffee
+>>> onesignal list
+["List all apps"]
+```
+##### Send Message
+```coffee
+>>> onesignal send app_Id:'appId' headings:'headings' contents:'contents' isAnyWeb:'true/false' include_player_ids:'includePlayerIds'
+{"success": "true","message": "Notification sent","statusCode": 200}
+```
+
+Curious to [learn more](https://docs.storyscript.io/)?
+
+✨🍰✨
+
+## Usage with [OMG CLI](https://www.npmjs.com/package/omg)
+
+##### List Application
+```shell
 $ omg run list -e USER_KEY=<USER_AUTH_KEY> -e APP_KEY=<APP_KEY>
 ```
 
 ##### Send Message
-```sh
+```shell
 $ omg run send -a app_Id=<APPLICATION_ID> -a headings=<HEADING> -a contents=<CONTENTS> -a isAnyWeb=<BOOLEAN> -a include_player_ids=<PLAYERS_ID>
 ```
-## License
-### [MIT](https://choosealicense.com/licenses/mit/)
 
-## Docker
-### Build
-```
-docker build -t microservice-onesignal
-```
-### RUN
-```
-docker run -p 3000:3000 microservice-onesignal
-```
+**Note**: The OMG CLI requires [Docker](https://docs.docker.com/install/) to be installed.
+
+## License
+[MIT License](https://github.com/omg-services/onesignal/blob/master/LICENSE).
