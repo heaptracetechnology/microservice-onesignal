@@ -1,4 +1,4 @@
-omg: 1
+oms: 1
 lifecycle:
   startup:
     command: ["microservice-onesignal"]
