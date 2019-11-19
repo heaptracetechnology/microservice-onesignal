@@ -4,12 +4,12 @@ RUN	go get github.com/tbalthazar/onesignal-go
 
 RUN go get github.com/gorilla/mux
 
-WORKDIR /go/src/github.com/heaptracetechnology/microservice-onesignal
+WORKDIR /go/src/github.com/oms-services/onesignal
 
-ADD . /go/src/github.com/heaptracetechnology/microservice-onesignal
+ADD . /go/src/github.com/oms-services/onesignal
 
-RUN go install github.com/heaptracetechnology/microservice-onesignal
+RUN go install github.com/oms-services/onesignal
 
-ENTRYPOINT microservice-onesignal
+ENTRYPOINT onesignal
 
 EXPOSE 3000

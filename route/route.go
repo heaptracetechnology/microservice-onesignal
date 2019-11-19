@@ -4,7 +4,7 @@ import (
     "github.com/gorilla/mux"
     "log"
     "net/http"
-    "github.com/heaptracetechnology/microservice-onesignal/messaging"
+    "github.com/oms-services/onesignal/messaging"
 )
 
 type Route struct {

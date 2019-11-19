@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/heaptracetechnology/microservice-onesignal/route"
+	"github.com/oms-services/onesignal/route"
 	"log"
 	"net/http"
 )

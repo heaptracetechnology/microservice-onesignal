@@ -1,10 +1,10 @@
 oms: 1
 lifecycle:
   startup:
-    command: ["microservice-onesignal"]
+    command: ['onesignal']
 info:
   version: 1.0.0
-  title: OneSignal 
+  title: OneSignal
   description: This is a OneSignal service to push notification message.
   contact:
     name: Rohit Shetty
@@ -12,7 +12,7 @@ info:
     email: rohits@heaptrace.com
   license:
     name: MIT
-    url: https://opensource.org/licenses/MIT 
+    url: https://opensource.org/licenses/MIT
 actions:
   list:
     help: List Applications
@@ -21,7 +21,7 @@ actions:
       method: get
       path: /list
       contentType: application/json
-    output:   
+    output:
       type: object
       contentType: application/json
       properties:
@@ -50,222 +50,222 @@ actions:
         in: requestBody
         required: true
         help: Application ID of application created on onesignal.
-      headings: 
+      headings:
         type: map
         in: requestBody
         required: false
         help: Heading of the message,Key as "en"(english) and Value.
-      contents:  
+      contents:
         type: map
         in: requestBody
         required: false
         help: Content of the message,Key as "en"(english) and Value.
-      isIos: 
+      isIos:
         type: boolean
         in: requestBody
         required: false
         help: Defines device type (true/false).
-      isAndroid: 
+      isAndroid:
         type: boolean
         in: requestBody
         required: false
         help: Defines device type (true/false).
-      isWP: 
+      isWP:
         type: boolean
         in: requestBody
         required: false
         help: Defines it is web push or not (true/false).
-      isAdm: 
+      isAdm:
         type: boolean
         in: requestBody
         required: false
         help: Defines it is Adm or not (true/false).
-      isChrome: 
+      isChrome:
         type: boolean
         in: requestBody
         required: false
         help: Defines it is Chrome or not (true/false).
-      isChromeWeb: 
+      isChromeWeb:
         type: boolean
         in: requestBody
         required: false
         help: Defines it is Chrome web notification or not (true/false).
-      isAdmisSafari: 
+      isAdmisSafari:
         type: boolean
         in: requestBody
         required: false
         help: Defines it is Safari browser or not (true/false).
-      data: 
+      data:
         type: map
         in: requestBody
         required: false
         help: Data of the message,Key as "en"(english) and Value.
-      isAnyWeb: 
+      isAnyWeb:
         type: boolean
         in: requestBody
         required: false
         help: Defines for any web push notification.
-      include_player_ids: 
+      include_player_ids:
         type: list
         in: requestBody
         required: false
         help: Players Id of onesignal subscribers to whom notification is to be sent.
-      include_ios_tokens: 
+      include_ios_tokens:
         type: list
         in: requestBody
         required: false
         help: List of IOS device token.
-      include_android_reg_ids: 
+      include_android_reg_ids:
         type: list
         in: requestBody
         required: false
         help: List of android registration IDs.
-      include_wp_uris: 
+      include_wp_uris:
         type: list
         in: requestBody
         required: false
         help: List of web push URIs.
-      include_wp_wns_uris: 
+      include_wp_wns_uris:
         type: list
         in: requestBody
         required: false
         help: List of wns web push URis.
-      include_amazon_reg_ids: 
+      include_amazon_reg_ids:
         type: list
         in: requestBody
         required: false
         help: List of amazon registered registration Ids.
-      include_chrome_reg_ids: 
+      include_chrome_reg_ids:
         type: list
         in: requestBody
         required: false
         help: List of chrome registered Ids.
-      include_chrome_web_reg_ids: 
+      include_chrome_web_reg_ids:
         type: list
         in: requestBody
         required: false
         help: List of chrome web registered Ids.
-      app_ids: 
+      app_ids:
         type: list
         in: requestBody
         required: false
         help: List of application ids where notification is to be sent.
-      tags: 
+      tags:
         type: map
         in: requestBody
         required: false
         help: Tags for the notifications.
-      included_segments: 
+      included_segments:
         type: list
         in: requestBody
         required: false
-        help: List of the segments to be included to send notification. 
-      excluded_segments: 
+        help: List of the segments to be included to send notification.
+      excluded_segments:
         type: list
         in: requestBody
         required: false
-        help: List of the segments to be excluded to send notification. 
-      small_icon: 
+        help: List of the segments to be excluded to send notification.
+      small_icon:
         type: string
         in: requestBody
         required: false
         help: Url of the icon.
-      large_icon: 
+      large_icon:
         type: string
         in: requestBody
         required: false
         help: Url of the icon.
-      big_picture: 
+      big_picture:
         type: string
         in: requestBody
         required: false
         help: Url of the icon.
-      chrome_icon: 
+      chrome_icon:
         type: string
         in: requestBody
         required: false
         help: Url of the icon.
-      chrome_web_icon: 
+      chrome_web_icon:
         type: string
         in: requestBody
         required: false
         help: Url of the icon.
-      ios_badgeType: 
+      ios_badgeType:
         type: string
         in: requestBody
         required: false
         help: Badge type of the IOS device.
-      ios_badgeCount: 
+      ios_badgeCount:
         type: string
         in: requestBody
         required: false
         help: Badge count of the IOS device.
-      ios_sound: 
+      ios_sound:
         type: string
         in: requestBody
         required: false
         help: Notification sound of IOS device.
-      android_sound: 
+      android_sound:
         type: string
         in: requestBody
         required: false
         help: Notification sound of android device.
-      adm_sound: 
+      adm_sound:
         type: string
         in: requestBody
         required: false
         help: ADM sound.
-      wp_sound: 
+      wp_sound:
         type: string
         in: requestBody
         required: false
         help: Web push notification sound.
-      wp_wns_sound: 
+      wp_wns_sound:
         type: string
         in: requestBody
         required: false
         help: Web push wns notification sound.
-      send_after: 
+      send_after:
         type: string
         in: requestBody
         required: false
         help: Delay time to send message.
-      delayed_option: 
+      delayed_option:
         type: string
         in: requestBody
         required: false
         help: Delay time to send message.
-      delivery_time_of_day: 
+      delivery_time_of_day:
         type: string
         in: requestBody
         required: false
         help: Delivery time to send message.
-      android_led_color: 
+      android_led_color:
         type: string
         in: requestBody
         required: false
         help: Android notification LED colour.
-      android_accent_color: 
+      android_accent_color:
         type: string
         in: requestBody
         required: false
         help: Android accent colour.
-      android_visibility: 
+      android_visibility:
         type: int
         in: requestBody
         required: false
         help: Android visibility.
-      android_background_data: 
+      android_background_data:
         type: int
         in: requestBody
         required: false
         help: Android background data.
-      filters: 
+      filters:
         type: map
         in: requestBody
         required: false
         help: User filters to be added while sending message
-    output:   
+    output:
       type: object
       contentType: application/json
       properties:

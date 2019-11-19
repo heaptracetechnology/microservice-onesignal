@@ -6,7 +6,7 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/heaptracetechnology/microservice-onesignal/result"
+	"github.com/oms-services/onesignal/result"
 	"github.com/tbalthazar/onesignal-go"
 )
 
