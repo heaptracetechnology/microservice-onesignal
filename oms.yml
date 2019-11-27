@@ -111,8 +111,7 @@ actions:
         in: requestBody
         required: false
         help: >-
-          Players Id of onesignal subscribers to whom notification is to be
-          sent.
+          Players Id of onesignal subscribers to whom notification is to be sent.
       include_ios_tokens:
         type: list
         in: requestBody
@@ -284,9 +283,7 @@ actions:
 environment:
   USER_KEY:
     type: string
-    required: false
     help: User key for onesignal.
   APP_KEY:
     type: string
-    required: false
     help: App key for onesignal.
