@@ -1,18 +1,19 @@
 oms: 1
-lifecycle:
-  startup:
-    command: ['onesignal']
 info:
   version: 1.0.0
   title: OneSignal
   description: This is a OneSignal service to push notification message.
   contact:
-    name: Rohit Shetty
-    url: https://github.com/ht68rohit
-    email: rohits@heaptrace.com
+    name: Open Microservices
+    url: 'https://openmicroservices.org'
+    email: core@openmicroservices.org
   license:
     name: MIT
-    url: https://opensource.org/licenses/MIT
+    url: 'https://opensource.org/licenses/MIT'
+lifecycle:
+  startup:
+    command:
+      - onesignal
 actions:
   list:
     help: List Applications
@@ -54,12 +55,12 @@ actions:
         type: map
         in: requestBody
         required: false
-        help: Heading of the message,Key as "en"(english) and Value.
+        help: 'Heading of the message,Key as "en"(english) and Value.'
       contents:
         type: map
         in: requestBody
         required: false
-        help: Content of the message,Key as "en"(english) and Value.
+        help: 'Content of the message,Key as "en"(english) and Value.'
       isIos:
         type: boolean
         in: requestBody
@@ -99,7 +100,7 @@ actions:
         type: map
         in: requestBody
         required: false
-        help: Data of the message,Key as "en"(english) and Value.
+        help: 'Data of the message,Key as "en"(english) and Value.'
       isAnyWeb:
         type: boolean
         in: requestBody
@@ -109,7 +110,9 @@ actions:
         type: list
         in: requestBody
         required: false
-        help: Players Id of onesignal subscribers to whom notification is to be sent.
+        help: >-
+          Players Id of onesignal subscribers to whom notification is to be
+          sent.
       include_ios_tokens:
         type: list
         in: requestBody
